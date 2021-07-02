@@ -2,6 +2,9 @@ img = "";
 status = "";
 objects = [];
 song = "";
+function preload(){
+    song = loadSound("alarm.mp3")
+}
 function setup() {
     canvas = createCanvas(380, 380);
     canvas.center();
@@ -32,8 +35,16 @@ function draw() {
                 console.log("stop");
                 song.stop();
             }else{
-                song.play("alarm.mp3");
+                song.play();
+                document.getElementById("number_of_objects").innerHTML = "Baby Not Found";
+                console.log("play");
             }
+        }
+
+        if (objects.length == 0){
+            song.play();
+            document.getElementById("number_of_objects").innerHTML = "Baby Not Found";
+            console.log("play");
         }
     }
 }
